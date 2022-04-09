@@ -1,0 +1,9 @@
+.container {
+    //background: cadetblue;
+    padding: 20px 0;
+}
+.innerContainer {
+    max-width: 1200px;
+    margin: 20px auto;
+    
+}
