@@ -1,4 +1,4 @@
-import Link from 'next/Link'
+import Link from 'next/link'
 import styles from './Navbar.module.scss'
 import Button from '../../components/layout/Button';
 import useWindowsDiamensions from './@hooks/useWindowsDimensions'

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import instance from './../api/axios'
 import styles from './Post.module.scss'
 import axios from 'axios'
-import Link from 'next/Link'
+import Link from 'next/link'
 import Button from '../../components/layout/Button';
 
 export const getStaticProps = async () => {

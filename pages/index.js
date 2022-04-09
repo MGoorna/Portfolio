@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
-import Link from 'next/Link'
+import Link from 'next/link'
 import BackgroundImage from './BackgroundImage'
 
 
