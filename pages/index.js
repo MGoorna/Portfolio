@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
-import BackgroundImage from './BackgroundImage'
+//import BackgroundImage from './BackgroundImage'
 
 
 
@@ -42,9 +42,9 @@ export default function Home() {
         <meta name="keywords" content="Portfolio" />
       </Head>      
       <main>
-        <ul id="imageSection" className={styles.image__section}>
+        {/*<ul id="imageSection" className={styles.image__section}>
           <BackgroundImage index={index} technolgies={technolgies}/>
-        </ul>
+        </ul>*/}
         <ul id="menu" className={styles.menu}>
           <li><Link href="/table">
           <a className={styles.hover__underline__animation} tabIndex={0}
