@@ -20,7 +20,7 @@ export default function Home() {
     document.body.addEventListener('mousemove', handleMouseMove)
     return function cleacup(){
       document.body.removeEventListener('mousemove', handleMouseMove)
-      cancelAnimationFrame(cursorRef.current)
+      //cancelAnimationFrame(cursorRef.current)
     }
   }, [])
 
