@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
-//import BackgroundImage from './BackgroundImage'
+import BackgroundImage from './BackgroundImage'
 
 
 
@@ -26,6 +26,7 @@ export default function Home() {
 
   const handleMouseEnter = e => {
     const target = e.target.tabIndex;
+    //console.log('index', target)
     document.querySelectorAll(`[tabIndex]`)[target].style.setProperty("opacity", '1')
     setIndex(target)
   }
@@ -42,24 +43,24 @@ export default function Home() {
         <meta name="keywords" content="Portfolio" />
       </Head>      
       <main>
-        {/*<ul id="imageSection" className={styles.image__section}>
+        <ul id="imageSection" className={styles.image__section}>
           <BackgroundImage index={index} technolgies={technolgies}/>
-        </ul>*/}
+        </ul>
         <ul id="menu" className={styles.menu}>
           <li><Link href="/table">
-          <a className={styles.hover__underline__animation} tabIndex={0}
+          <a className={styles.hover__underline__animation} tabIndex='0'
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>React table</a></Link></li>                  
           <li><Link href="/chart"><a
-            className={styles.hover__underline__animation} tabIndex={1}
+            className={styles.hover__underline__animation} tabIndex='1'
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>Chart</a></Link></li>
           <li><Link href="/budget">
-            <a className={styles.hover__underline__animation} tabIndex={2}
+            <a className={styles.hover__underline__animation} tabIndex='2'
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>Budget</a></Link></li>
           <li><Link href="/posts"><a
-            className={styles.hover__underline__animation} tabIndex={3}
+            className={styles.hover__underline__animation} tabIndex='3'
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>Posts</a></Link></li>
         </ul>

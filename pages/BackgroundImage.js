@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.scss'
 
 const BackgroundImage = ({index, technolgies}) => {
 const img = 'img__app__'+index
+console.log('index', index, technolgies)
     return ( 
         <li>
             <div className={styles.img__app__1}></div> 
