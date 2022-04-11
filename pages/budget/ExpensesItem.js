@@ -206,7 +206,6 @@ const ExpensesItem = ({ rows }) => {
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
-    //console.log(selected.length)
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
@@ -237,7 +236,6 @@ const ExpensesItem = ({ rows }) => {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
-    console.log(rows.length, selected)
 
   return (
     <Box sx={{ width: '100%' }}>
