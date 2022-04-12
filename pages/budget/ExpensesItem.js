@@ -19,7 +19,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { visuallyHidden } from '@mui/utils';
 import { AiFillDelete } from 'react-icons/ai'; 
 import { BsFilter } from 'react-icons/bs'; 
-import { BudgetContext } from '../../context/BudgetContext';
+import { BudgetContext } from '../context/BudgetContext';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -238,7 +238,7 @@ const ExpensesItem = ({ rows }) => {
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 && rows ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -307,7 +307,7 @@ const ExpensesItem = ({ rows }) => {
             </TableBody>
           </Table>
         </TableContainer>
-        <TablePagination
+        {rows && <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           count={rows && rows.length}
@@ -315,7 +315,7 @@ const ExpensesItem = ({ rows }) => {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+        />}
       </Paper>
     </Box>
   );

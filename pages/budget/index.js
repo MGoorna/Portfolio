@@ -3,7 +3,7 @@ import BudgetCard from './BudgetCard'
 import ExpensesList from './ExpensesList'
 import AddExpenseForm from './AddExpenseForm'
 import {Container, Grid, Paper, useMediaQuery } from '@mui/material';
-import { BudgetContext } from '../../context/BudgetContext'
+import { BudgetContext } from '../context/BudgetContext'
 import dynamic from "next/dynamic";
 import { useTheme } from '@material-ui/core/styles';
 
