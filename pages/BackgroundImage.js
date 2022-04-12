@@ -5,13 +5,15 @@ const BackgroundImage = ({index, technolgies}) => {
     return ( 
         <li>
             {/*<div className={styles.img__app__1}></div> */}
-            <div className={styles.number}>0{index+1}</div>
-            <div className={styles.pagination}>
-              <div key={index} className={styles.pagination__displayed}>0{index+1}</div>
-              <div className={styles.pagination__all}>04</div>
-            </div>
-            <div key={index} className={styles.bg__title}>{index?technolgies[index]: '1'}</div>
-          </li>
+            {index && 
+            <><div className={styles.number}>0{index+1}</div>
+              <div className={styles.pagination}>
+                <div key={index} className={styles.pagination__displayed}>0{index+1}</div>
+                <div className={styles.pagination__all}>04</div>
+              </div>
+              <div key={index} className={styles.bg__title}>{technolgies[index]}</div>
+            </>}
+        </li>
      );
 }
  
