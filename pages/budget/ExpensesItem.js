@@ -39,15 +39,18 @@ function getComparator(order, orderBy) {
 }
 
 function stableSort(array, comparator) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
-    if (order !== 0) {
-      return order;
-    }
-    return a[1] - b[1];
-  });
-  return stabilizedThis.map((el) => el[0]);
+  if(array){
+    const stabilizedThis = array.map((el, index) => [el, index]);
+    stabilizedThis.sort((a, b) => {
+      const order = comparator(a[0], b[0]);
+      if (order !== 0) {
+        return order;
+      }
+      return a[1] - b[1];
+    });
+    return stabilizedThis.map((el) => el[0]);
+  }
+
 }
 
 const headCells = [
@@ -187,6 +190,7 @@ const ExpensesItem = ({ rows }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const { dispatch } = useContext(BudgetContext);
 
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -197,7 +201,6 @@ const ExpensesItem = ({ rows }) => {
     if (event.target.checked) {
       const newSelecteds = rows.map((n) => n.name);
       setSelected(newSelecteds);
-      console.log(newSelecteds)
       return;
     }
     setSelected([]);
@@ -253,10 +256,10 @@ const ExpensesItem = ({ rows }) => {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={rows && rows.length}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
+              {rows && stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.name);
@@ -307,7 +310,7 @@ const ExpensesItem = ({ rows }) => {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={rows && rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
