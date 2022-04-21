@@ -2,7 +2,7 @@ import Footer from "./Footer"
 import Navbar from "./Navbar"
 import styles from './Layout.module.css'
 import { useContext } from 'react';
-import { ThemeContext } from '../../pages/context/ThemeContext'
+import { ThemeContext } from '../../context/ThemeContext'
 import { useRouter } from 'next/router'
 
 const Layout = ({children}) => {

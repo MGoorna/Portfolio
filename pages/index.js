@@ -7,7 +7,7 @@ import BackgroundImage from './BackgroundImage'
 
 
 export default function Home() {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState('1')
   const technolgies = ['1','chartjs','React context, useReducer, Bootstrap', 'css grid, custom button']
   const cursorRef = useRef();
 
@@ -35,7 +35,7 @@ export default function Home() {
     const target = e.target.tabIndex;
     document.querySelectorAll(`[tabIndex]`)[target].style.setProperty("opacity", '0.5')
   }
-
+  console.log('index', index)
   return (
     <>
       <Head>

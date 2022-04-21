@@ -1,8 +1,8 @@
 import Layout from '../components/layout/Layout'
 import '../styles/globals.css'
 import Head from 'next/head'
-import { BudgetProvider } from '../pages/context/BudgetContext'
-import { ThemeContextProvider } from '../pages/context/ThemeContext'
+import { BudgetProvider } from '../context/BudgetContext'
+import { ThemeContextProvider } from '../context/ThemeContext'
 
 
 function MyApp({ Component, pageProps }) {

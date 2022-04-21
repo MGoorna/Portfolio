@@ -15,7 +15,7 @@
     "@mui/lab": "^5.0.0-alpha.73",
     "@mui/material": "^5.2.3",
     "@mui/styles": "^5.4.2",
-    "@nivo/core": "^0.78.0",
+    "@nivo/core": "^0.79.0",
     "@nivo/pie": "^0.79.0",
     "axios": "^0.24.0",
     "babel-plugin-styled-components": "^2.0.3",

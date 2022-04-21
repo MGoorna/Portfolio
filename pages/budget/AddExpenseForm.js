@@ -1,7 +1,7 @@
 import { useState, useContext, useLayoutEffect } from 'react'
 import { Stack, Typography, Box, Paper, InputAdornment, Text, TextField, Button } from '@mui/material';
 import { BsSave } from 'react-icons/bs'; 
-import { BudgetContext } from '../context/BudgetContext';
+import { BudgetContext } from '../../context/BudgetContext';
 import { v4 as uuidv4 } from 'uuid'
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';

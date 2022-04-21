@@ -5,7 +5,7 @@ const BackgroundImage = ({index, technolgies}) => {
     return ( 
         <li>
             {/*<div className={styles.img__app__1}></div> */}
-            {index && 
+            {index != undefined && 
             <><div className={styles.number}>0{index+1}</div>
               <div className={styles.pagination}>
                 <div key={index} className={styles.pagination__displayed}>0{index+1}</div>

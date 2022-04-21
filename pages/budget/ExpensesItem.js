@@ -19,7 +19,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { visuallyHidden } from '@mui/utils';
 import { AiFillDelete } from 'react-icons/ai'; 
 import { BsFilter } from 'react-icons/bs'; 
-import { BudgetContext } from '../context/BudgetContext';
+import { BudgetContext } from '../../context/BudgetContext';
 
 
 function descendingComparator(a, b, orderBy) {

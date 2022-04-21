@@ -5,7 +5,7 @@ import { GiCash } from "react-icons/gi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsSave } from 'react-icons/bs'; 
 import { useContext, useState } from 'react';
-import { BudgetContext } from '../context/BudgetContext';
+import { BudgetContext } from '../../context/BudgetContext';
 import ModalApp from '../../components/ModalApp'
 
 const styles = {
