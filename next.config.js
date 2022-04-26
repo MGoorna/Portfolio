@@ -6,7 +6,6 @@ module.exports = {
   },
   images: {
     domains: ['via.placeholder.com','jsonplaceholder.typicode.com'],
-
     formats: ['image/avif', 'image/webp'],
   },
 }

@@ -1,9 +1,8 @@
-import { useContext } from 'react'
 import BudgetCard from './BudgetCard'
 import ExpensesList from './ExpensesList'
 import AddExpenseForm from './AddExpenseForm'
 import {Container, Grid, Paper, useMediaQuery } from '@mui/material';
-import { BudgetContext } from '../../context/BudgetContext'
+
 import { useTheme } from '@material-ui/core/styles';
 import BudgetChart from './BudgetChart'
 
@@ -12,7 +11,7 @@ import BudgetChart from './BudgetChart'
 })*/
 
 const Budget = () => {
-    const { expenses } = useContext(BudgetContext)
+    
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -36,7 +35,7 @@ const Budget = () => {
           </Grid>
           <Grid item xs={12} md={12} >
             <Paper elevation={0}>
-              <BudgetChart data={expenses} minHeight={450} /> 
+              <BudgetChart minHeight={450} /> 
             </Paper>  
           </Grid>
         </Grid>

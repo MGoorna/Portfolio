@@ -1,42 +1,33 @@
 //import { ResponsivePie } from '@nivo/pie'
 //import Chart from 'react-apexcharts'
+import { useContext } from 'react'
+import { BudgetContext } from '../../context/BudgetContext'
 
 import dynamic from 'next/dynamic';
 
-const Chart = dynamic(()=> import('react-apexcharts'), {
-    ssr:false,
-})
+const Chart = dynamic(() => import('react-apexcharts'), { ssr:false })
 
-const BudgetChart = ({data}) => {
-
+const BudgetChart = () => {
+    const { expenses } = useContext(BudgetContext)
     /*if (typeof window === 'undefined') {
         global.window = {}
     }*/
-
     const options={
-        legend:{show:true},    
-           
+        legend:{show:true},               
     }
-
-    
         // window is accessible here.
-        const series = {
-            name: data.map(item => item.name),
-            data: data.map(item => item.value)
-          }
-        
+    const series = {
+        name: expenses.map(item => item.name),
+        data: expenses.map(item => item.value)
+    }          
+    const data1 = expenses.map(item => item.value)
+    const labels = expenses.map(item => item.name)
       
-      const data1 = data.map(item => item.value)
-      const labels = data.map(item => item.name)
+    //const series = data.map(item => item.value)
       
-      //const series = data.map(item => item.value)
+    console.log(series.series)
       
-      console.log(series.series)
-      
-
-    
-
-      return(
+    return(
           <div style={{height:'450px', width: '100%', borderRadius: '10px'}}>
               <Chart
                   options={options}

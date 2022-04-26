@@ -160,11 +160,13 @@ const Posts = ({ postsLists }) => {
                     </div>
                     <h2>{post.title}</h2>
                     <div>                       
-                    alt={post.name}
+                        <Image
+                            alt={post.name}
                             className={styles.post__img} 
                             src={post.url}
                             width={45}
                             height={45}
+                        />
                     </div>
                     <div className={styles.post__body}>{post.body}</div>
                     <div className={styles.post__footer}></div>
