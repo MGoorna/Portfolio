@@ -46,11 +46,11 @@ const BudgetReducer = (state, action) => {
 const initialState = {
     budget: 4000,
     expenses: [
-        { id: 'clothing', name: 'clothing', value: 350, label: uuidv4(), date: '04/12/2021'},
-        { id: 'restaurants', name: 'restaurants', value: 450, label: uuidv4(), date: '08/12/2021',},
-        { id: 'food', name: 'food', value: 650, label: uuidv4(), date: '15/12/2021'},        
-        { id: 'groceries', name: 'groceries', value: 1650, label: uuidv4(), date: '21/12/2021'},
-        { id: 'gifts', name: 'gifts', value: 250, label: uuidv4(), date: '22/12/2021'},
+        { id: 'clothing', name: 'clothing', value: 350, label: uuidv4(), date: '04/12/2021', options:{}},
+        { id: 'restaurants', name: 'restaurants', value: 450, label: uuidv4(), date: '08/12/2021', options:{}},
+        { id: 'food', name: 'food', value: 650, label: uuidv4(), date: '15/12/2021', options:{}},        
+        { id: 'groceries', name: 'groceries', value: 1650, label: uuidv4(), date: '21/12/2021', options:{}},
+        { id: 'gifts', name: 'gifts', value: 250, label: uuidv4(), date: '22/12/2021', options:{}},
     ]
 }
 
