@@ -2,13 +2,13 @@ import BudgetCard from './BudgetCard'
 import ExpensesList from './ExpensesList'
 import AddExpenseForm from './AddExpenseForm'
 import {Container, Grid, Paper, useMediaQuery } from '@mui/material';
-
 import { useTheme } from '@material-ui/core/styles';
-import BudgetChart from './BudgetChart'
+//import BudgetChart from './BudgetChart'
+import dynamic from 'next/dynamic';
 
-/*const BudgetChart = dynamic(() => import("./BudgetChart"), {
+const BudgetChart = dynamic(() => import("./BudgetChart"), {
   ssr: false
-})*/
+})
 
 const Budget = () => {
     
