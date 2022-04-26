@@ -1,5 +1,4 @@
 import { Box, Grid, LinearProgress, Typography, TextField, Button, Avatar } from '@mui/material';
-import { deepOrange, indigo } from '@mui/material/colors';
 import { BsCreditCard2Front } from "react-icons/bs";
 import { GiCash } from "react-icons/gi";
 import { AiOutlineShoppingCart } from "react-icons/ai";

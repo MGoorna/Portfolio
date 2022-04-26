@@ -4,13 +4,12 @@ import ExpensesList from './ExpensesList'
 import AddExpenseForm from './AddExpenseForm'
 import {Container, Grid, Paper, useMediaQuery } from '@mui/material';
 import { BudgetContext } from '../../context/BudgetContext'
-import dynamic from "next/dynamic";
 import { useTheme } from '@material-ui/core/styles';
+import BudgetChart from './BudgetChart'
 
-
-const BudgetChart = dynamic(() => import("./BudgetChart"), {
+/*const BudgetChart = dynamic(() => import("./BudgetChart"), {
   ssr: false
-})
+})*/
 
 const Budget = () => {
     const { expenses } = useContext(BudgetContext)

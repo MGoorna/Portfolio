@@ -4,6 +4,7 @@ import styles from './Post.module.scss'
 import axios from 'axios'
 import Link from 'next/link'
 import Button from '../../components/layout/Button';
+import Image from 'next/image'
 
 export const getStaticProps = async () => {
 
@@ -22,7 +23,9 @@ export const getStaticProps = async () => {
         let imageList = photos.find(img => img.id === photosList.id)
         return { ...photosList, ...usersList, ...imageList }
     })
-        
+
+    console.log('Building slug:', {mergedData})
+
     return {
         props: { postsLists: mergedData }
     }
@@ -54,7 +57,7 @@ const Posts = ({ postsLists }) => {
     
     useEffect(() => {   
         setPosts(postsLists.slice(0, maxDisplayLimit))
-    }, [maxDisplayLimit])
+    }, [maxDisplayLimit, postsLists])
 
     
 
@@ -114,8 +117,17 @@ const Posts = ({ postsLists }) => {
                         <p className={styles.post__data}>07/15/2021</p>
                     </div>
                     <h2>{post.title}</h2>
-                    <div className={styles.post__author}>
-                        <img className={styles.post__img} src={post.url} alt={post.name} width="55" />
+                    <div className={styles.post__author}>                        
+                    <Image
+                            alt={post.name}
+                            className={styles.post__img} 
+                            src={post.url}
+                            //layout="fill"
+                            //objectFit="cover"
+                            //quality={100}
+                            width={45}
+                            height={45}
+                        />
                         <div>
                         <p className={styles.post__author__name}>{post.name}</p>
                         <p className={styles.post__author__role}><small>{post.company.name}</small></p>
@@ -147,9 +159,12 @@ const Posts = ({ postsLists }) => {
                         <p className={styles.post__data}>07/15/2021</p>
                     </div>
                     <h2>{post.title}</h2>
-
-                    <div>
-                        <img className={styles.post__img} src={post.url} alt={post.name} width="50px" />
+                    <div>                       
+                    alt={post.name}
+                            className={styles.post__img} 
+                            src={post.url}
+                            width={45}
+                            height={45}
                     </div>
                     <div className={styles.post__body}>{post.body}</div>
                     <div className={styles.post__footer}></div>
