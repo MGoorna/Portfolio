@@ -1,15 +1,23 @@
 //import { ResponsivePie } from '@nivo/pie'
 //import Chart from 'react-apexcharts'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { BudgetContext } from '../../context/BudgetContext'
 
 import dynamic from 'next/dynamic';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr:false })
 
-if(typeof window != "undefined") window.ApexCharts = ApexCharts;
+//if(typeof window != "undefined") window.ApexCharts = ApexCharts;
 const BudgetChart = () => {
     const { expenses } = useContext(BudgetContext)
+    const [Chart1, setChart] = useState(null)
+
+  useEffect(() => { // useEffect is triggered after MyComponent is mounted (only on the client side)
+    import("react-apexcharts")
+    .then((Component) => setChart(Component));
+  }, []); // fire this effect only once
+
+
     /*if (typeof window === 'undefined') {
         global.window = {}
     }*/
@@ -29,8 +37,8 @@ const BudgetChart = () => {
     console.log(series.series)
       
     return(
-          <div style={{height:'450px', width: '100%', borderRadius: '10px'}}>
-              <Chart
+           <div style={{height:'450px', width: '100%', borderRadius: '10px'}}>
+            {Chart1 && <Chart
                   options={options}
                   series={data1}
                   type="donut"
@@ -38,7 +46,7 @@ const BudgetChart = () => {
                   margin="auto"
                   legend="false"
                   labels= {labels}
-                  />
+                  />}
   
               {/*<ResponsivePie
                   data={data}
