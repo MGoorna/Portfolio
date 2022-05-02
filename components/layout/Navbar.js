@@ -57,12 +57,13 @@ const Navbar = () => {
                         <li>
                             <Link href="/"><a>Sign in</a></Link>
                         </li>
-                        <li onClick={login} className="btn">
+                        { !user && <li onClick={login} className="btn">
                             <Link href="/"><a>Login/Signup</a></Link>
-                        </li>
-                        <li onClick={logout} className="btn">
+                        </li> }
+                        { user && <li>{user.email}</li> }
+                        { user && <li onClick={logout} className="btn">
                             <Link href="/"><a>Logout</a></Link>
-                        </li>
+                        </li> }
                         <li>
                             <Button type="text" 
                                 onClick={()=>{console.log('clicked')}} 
