@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr:false })
 
 //if(typeof window != "undefined") window.ApexCharts = ApexCharts;
+
 const BudgetChart = () => {
     const { expenses } = useContext(BudgetContext)
     const [Chart1, setChart] = useState(null)

@@ -6,12 +6,16 @@ import { FaHome, FaChartArea } from "react-icons/fa";
 import { BsSignpostSplitFill } from "react-icons/bs";
 import { SiBitcoincash } from "react-icons/si";
 import { RiBankLine } from 'react-icons/ri'; 
-import { CgMenuGridO } from 'react-icons/cg'; 
+import { CgMenuGridO } from 'react-icons/cg';
+import { useContext } from 'react'; 
+import AuthContext from '../../context/authContext'
 
 const Navbar = () => {
 
     const { width, height } = useWindowsDiamensions()
     const isMobile = width <= 640;
+    const { user, login, logout } = useContext(AuthContext)
+    console.log('user', user, login, logout)
 
     return ( 
         <header className={styles.header}>
@@ -52,6 +56,12 @@ const Navbar = () => {
                     
                         <li>
                             <Link href="/"><a>Sign in</a></Link>
+                        </li>
+                        <li onClick={login} className="btn">
+                            <Link href="/"><a>Login/Signup</a></Link>
+                        </li>
+                        <li onClick={logout} className="btn">
+                            <Link href="/"><a>Logout</a></Link>
                         </li>
                         <li>
                             <Button type="text" 
