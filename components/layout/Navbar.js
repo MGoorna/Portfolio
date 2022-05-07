@@ -1,3 +1,4 @@
+import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link'
 import styles from './Navbar.module.scss'
 import Button from '../../components/layout/Button';
@@ -10,12 +11,18 @@ import { CgMenuGridO } from 'react-icons/cg';
 import { useContext } from 'react'; 
 import AuthContext from '../../context/authContext'
 
+//import { signIn, signOut} from 'next-auth/client'
+
+
+
 const Navbar = () => {
 
     const { width, height } = useWindowsDiamensions()
     const isMobile = width <= 640;
-    const { user, login, logout } = useContext(AuthContext)
-    console.log('user', user, login, logout)
+    const { user, login, logout, authReady } = useContext(AuthContext)
+    const { data: session, status } = useSession()
+
+    console.log('user', session, status)
 
     return ( 
         <header className={styles.header}>
@@ -40,6 +47,7 @@ const Navbar = () => {
                 :
                 (<nav className={styles.nav}>
                     <div className={styles.nav_mobile}><a id="nav-toggle" href="#!"><span></span></a></div>
+                    {authReady && (
                     <ul className={styles.nav__list}>
 
                         <li>
@@ -54,9 +62,7 @@ const Navbar = () => {
                         </li>            
                         <li className={styles.stretch}></li>
                     
-                        <li>
-                            <Link href="/"><a>Sign in</a></Link>
-                        </li>
+                        
                         { !user && <li onClick={login} className="btn">
                             <Link href="/"><a>Login/Signup</a></Link>
                         </li> }
@@ -64,6 +70,27 @@ const Navbar = () => {
                         { user && <li onClick={logout} className="btn">
                             <Link href="/"><a>Logout</a></Link>
                         </li> }
+                        {!session && !status.loading &&(
+                            <li>
+                            <Link href="/api/auth/signin">
+                            <a onClick={e =>{
+                                e.preventDefault()
+                                signIn('github')
+                                }}>Sign In</a>
+                            </Link>
+                        </li>
+                        )}
+                        {session && (
+                            <li>
+                            <Link href="/api/auth/signout">
+                            <a onClick={e =>{
+                                e.preventDefault()
+                                signOut()
+                                }}>Sign Out</a>
+                            </Link>
+                        </li>
+                        )}
+
                         <li>
                             <Button type="text" 
                                 onClick={()=>{console.log('clicked')}} 
@@ -72,7 +99,7 @@ const Navbar = () => {
                                 Register
                             </Button>
                         </li>
-                    </ul>
+                    </ul>)}
                 </nav>)
                 }
         </header>

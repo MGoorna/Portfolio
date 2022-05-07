@@ -4,8 +4,9 @@ import Head from 'next/head'
 import { BudgetProvider } from '../context/BudgetContext'
 import { ThemeContextProvider } from '../context/ThemeContext'
 import { AuthContextProvider } from '../context/authContext'
+import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: {session, ...pageProps} }) {
 
     return(
       <>
@@ -23,15 +24,17 @@ function MyApp({ Component, pageProps }) {
             rel="stylesheet"
           />
         </Head>
-        <AuthContextProvider>
-          <ThemeContextProvider>
-            <BudgetProvider>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout> 
-            </BudgetProvider>
-          </ThemeContextProvider>
-        </AuthContextProvider>
+        <SessionProvider session={session}> 
+          <AuthContextProvider>
+            <ThemeContextProvider>
+              <BudgetProvider>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout> 
+              </BudgetProvider>
+            </ThemeContextProvider>
+          </AuthContextProvider>
+        </SessionProvider>
       </>
     ) 
 }

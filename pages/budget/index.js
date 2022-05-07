@@ -15,6 +15,7 @@ const Budget = () => {
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
+
     return(
       <Container maxWidth="xlg">
         <Grid item container spacing={3}>
