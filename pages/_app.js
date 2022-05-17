@@ -3,8 +3,9 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import { BudgetProvider } from '../context/BudgetContext'
 import { ThemeContextProvider } from '../context/ThemeContext'
-import { AuthContextProvider } from '../context/authContext'
-import { SessionProvider } from "next-auth/react"
+//import { AuthContextProvider } from '../context/authContext'
+import { SessionProvider } from 'next-auth/react'
+import { UserProvider } from '@auth0/nextjs-auth0'
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }) {
 
@@ -25,7 +26,7 @@ function MyApp({ Component, pageProps: {session, ...pageProps} }) {
           />
         </Head>
         <SessionProvider session={session}> 
-          <AuthContextProvider>
+          {/*<AuthContextProvider>*/}
             <ThemeContextProvider>
               <BudgetProvider>
                 <Layout>
@@ -33,7 +34,7 @@ function MyApp({ Component, pageProps: {session, ...pageProps} }) {
                 </Layout> 
               </BudgetProvider>
             </ThemeContextProvider>
-          </AuthContextProvider>
+          {/*</AuthContextProvider>*/}
         </SessionProvider>
       </>
     ) 

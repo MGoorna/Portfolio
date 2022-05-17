@@ -3,26 +3,23 @@ import Link from 'next/link'
 import styles from './Navbar.module.scss'
 import Button from '../../components/layout/Button';
 import useWindowsDiamensions from './@hooks/useWindowsDimensions'
-import { FaHome, FaChartArea } from "react-icons/fa";
+import { FaChartArea } from "react-icons/fa";
 import { BsSignpostSplitFill } from "react-icons/bs";
 import { SiBitcoincash } from "react-icons/si";
 import { RiBankLine } from 'react-icons/ri'; 
 import { CgMenuGridO } from 'react-icons/cg';
-import { useContext } from 'react'; 
-import AuthContext from '../../context/authContext'
-
-//import { signIn, signOut} from 'next-auth/client'
-
+import { useRouter } from 'next/router'
 
 
 const Navbar = () => {
 
     const { width, height } = useWindowsDiamensions()
     const isMobile = width <= 640;
-    const { user, login, logout, authReady } = useContext(AuthContext)
     const { data: session, status } = useSession()
+    const { query:{ callbackUrl } } = useRouter();
+    const router = useRouter()
 
-    console.log('user', session, status)
+    console.log('user', session, status, router.pathname)
 
     return ( 
         <header className={styles.header}>
@@ -47,7 +44,7 @@ const Navbar = () => {
                 :
                 (<nav className={styles.nav}>
                     <div className={styles.nav_mobile}><a id="nav-toggle" href="#!"><span></span></a></div>
-                    {authReady && (
+
                     <ul className={styles.nav__list}>
 
                         <li>
@@ -62,20 +59,13 @@ const Navbar = () => {
                         </li>            
                         <li className={styles.stretch}></li>
                     
-                        
-                        { !user && <li onClick={login} className="btn">
-                            <Link href="/"><a>Login/Signup</a></Link>
-                        </li> }
-                        { user && <li>{user.email}</li> }
-                        { user && <li onClick={logout} className="btn">
-                            <Link href="/"><a>Logout</a></Link>
-                        </li> }
+                    
                         {!session && !status.loading &&(
                             <li>
                             <Link href="/api/auth/signin">
-                            <a onClick={e =>{
-                                e.preventDefault()
-                                signIn('github')
+                                <a onClick={e =>{
+                                    e.preventDefault()
+                                    signIn()//'github'
                                 }}>Sign In</a>
                             </Link>
                         </li>
@@ -99,7 +89,7 @@ const Navbar = () => {
                                 Register
                             </Button>
                         </li>
-                    </ul>)}
+                    </ul>
                 </nav>)
                 }
         </header>
