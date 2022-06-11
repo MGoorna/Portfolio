@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 
 const chart = ({data}) => {
   const router = useRouter()
+  
+
 
   return (
     <div>
