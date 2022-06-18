@@ -98,8 +98,8 @@ const Posts = ({ postsLists }) => {
             </label>  
             <div className={styles.blog_posts} id='postWrapper'>
                 {searchInput == '' ?
-                (posts && posts.map((post, idx) => (
-                <article className={styles.post} key={post.id+idx}>
+                (posts && posts.map((post) => (
+                <article className={styles.post} key={post.id}>
                 <Link href={`/posts/${post.id}`} ><a>
                     <div className={styles.meta}>
                         <div className={styles.post__tag__container}>
@@ -140,8 +140,8 @@ const Posts = ({ postsLists }) => {
                 </article>               
                 ))
                 ):(
-                    filteredResults && filteredResults.map((post, idx) => (
-                <article className={styles.post} key={post.id+idx}>
+                    filteredResults && filteredResults.map((post) => (
+                <article className={styles.post} key={post.id}>
                 <Link href={`/posts/${post.id}`} ><a>
                     <div className={styles.meta}>
                         <div className={styles.post__tag__container}>
