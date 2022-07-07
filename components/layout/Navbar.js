@@ -38,6 +38,9 @@ const Navbar = () => {
                             <li>
                                 <Link href="/posts"><a><BsSignpostSplitFill fontSize='20'/>Posts</a></Link>
                             </li>  
+                            <li>
+                                <Link href="/grid"><a>Grid layouts</a></Link>
+                            </li>
                         </ul>
                         <CgMenuGridO color='white' fontSize='40'/>
                     </nav>)
@@ -56,7 +59,10 @@ const Navbar = () => {
                         <li>
                             <Link href="/posts"><a>Posts</a></Link>
                             <span className={styles.nav__badge}>New</span>
-                        </li>            
+                        </li>      
+                        <li>
+                            <Link href="/grid"><a>Grid layouts</a></Link>
+                        </li>      
                         <li className={styles.stretch}></li>
                     
                     

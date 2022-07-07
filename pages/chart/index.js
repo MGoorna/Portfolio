@@ -1,11 +1,6 @@
 import { getSession } from 'next-auth/react';
-import { useRouter } from 'next/router'
 
 const chart = ({data}) => {
-  const router = useRouter()
-  
-
-
   return (
     <div>
       <h5>{data}</h5> 
@@ -19,7 +14,6 @@ export default chart
 export async function getServerSideProps(context){
   const session = await getSession(context)
   
-
   if(!session){
     return {
       redirect: {

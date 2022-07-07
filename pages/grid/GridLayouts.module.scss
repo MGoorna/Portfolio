@@ -1,0 +1,181 @@
+$padding: 10px;
+$column-gap: 10px;
+$column-span-desktop: 3;
+$column-span-tablet: 8;
+$column-span-mobile: 12;
+$bg: rgb(251, 251, 253);
+$bg-text: #a8a8a8;
+
+.imgWrapper{
+  width: '100%'; 
+  height: '100%'; 
+  position: 'relative';
+}
+.container {
+  max-width: 1440px;   
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 40px;  
+  &>div {
+    display: grid;
+    background-color: $bg;
+  }
+}
+
+/* I quarter */
+.pageLayout {
+  grid-template-columns: 1fr 3fr 1fr;
+  column-gap: $column-gap;
+  grid-column: span 2;
+  .header{
+    grid-column: span 3;
+    border-bottom: 1px solid #ccc;
+    padding: $padding;
+  };
+  &>:nth-child(2)
+  &>:nth-child(4){
+    grid-column: span 1;
+    padding: $padding;
+  };
+  .nav{ padding: $padding; };
+  .article { &>h2 { 
+    font-size: 3em;
+    padding: $padding; 
+  }};
+  &>:nth-child(3){
+    grid-column: span 1;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: $padding;
+  };
+  .footer{
+    grid-column: span 3;
+    padding: $padding;
+    border-top: 1px solid #ccc;
+  };
+/* responsive */
+  @media screen and (max-width: 980px){
+    nav { grid-column: span 3; }
+    nav li { 
+      display: inline-block; 
+      padding-right: 10px;
+    }
+    .article { grid-column: span 2; }
+  }
+  @media screen and (max-width: 700px){
+    .article { grid-column: span 3; }
+    .aside { grid-column: span 3; }
+    .aside li { 
+      display: inline-block;
+      padding: $padding;
+    }
+  }
+}
+
+/* II quarter */
+.masonryLayout{
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 50px;
+  background-color: cadetblue;
+  grid-column: span 2;
+  gap: $column-gap;
+  &>header{
+    grid-column: span 3;
+    grid-row: span 2;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    ul{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+    }
+    li h2>p{ text-transform: uppercase;}
+    li h2>p:nth-child(1){ letter-spacing: 5.5px; }
+    li h2>p:nth-child(2){ font-weight: 100; }
+  }
+  &>article{    
+    border-radius: 5px;  
+  }
+  .masonryText{
+    background-color: $bg;
+    padding: $padding;
+    grid-row: span 5;
+    text-align: left; 
+    padding: $padding;
+    h3, 
+    p, 
+    a { 
+      padding: $padding; 
+      
+    }
+    a{ text-decoration: underline; }
+
+  }
+  .masonryImg{
+    width: '100%'; 
+    height: '100%';
+    //position: 'relative';
+    background-color: $bg;
+    padding: $padding;
+    grid-row: span 10;
+  }
+
+}
+
+/* III quarter */
+.personalSiteLayout{
+  grid-template-columns: 1.2fr 1fr 1fr;
+  min-height: 100%;
+  grid-column: span 2;
+  .text{
+    background: #eeeee7;
+    color: #323230;
+    padding: 30px 60px;
+  }
+  .welcome{
+    display: grid;
+    background: #323230;
+    &>nav>ul>li{
+      display: inline;
+      padding: $padding;
+    }
+    & div p {
+      color: #a8a8a8;
+      max-width: 540px;
+      line-height: 2em;
+      text-align: center;
+      padding: $padding;
+    }
+    & div h2 {
+      color: #eeeee7;
+      font-size: 3em;
+    }
+    &>nav{color: #eeeee7;}
+    &>footer{
+      align-self: end;
+      color: #eeeee7;
+    }
+  }
+  &>.panel:nth-child(2){grid-template-rows: 3fr 1fr;}
+  &>.panel:nth-child(3){grid-template-rows: 1fr 3fr;}
+  &>.panel:nth-child(2),
+  &>.panel:nth-child(3){
+    display: grid;
+    overflow: hidden;
+    &>div{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  /* responsive */
+  @media screen and (max-width: 980px) {
+    grid-template-rows: 500px 400px 400px;
+    grid-template-columns: 1fr; 
+  }
+}
+
