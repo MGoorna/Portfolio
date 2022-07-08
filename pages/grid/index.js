@@ -114,7 +114,7 @@ const Flexlayout = () => {
         </div>
       </article>
       <article className={styles.masonryText}>
-        <h3>A not about style</h3>
+        <h3>Grosser Mythen - Schwyz</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, at!
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, at!
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, at!

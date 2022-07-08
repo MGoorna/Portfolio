@@ -17,7 +17,7 @@ $bg-text: #a8a8a8;
   grid-template-columns: 1fr;
   align-items: center;
   text-align: center;
-  gap: 40px;  
+  row-gap: 80px;  
   &>div {
     display: grid;
     background-color: $bg;
@@ -40,10 +40,10 @@ $bg-text: #a8a8a8;
     padding: $padding;
   };
   .nav{ padding: $padding; };
-  .article { &>h2 { 
+  .article>h2 { 
     font-size: 3em;
     padding: $padding; 
-  }};
+  };
   &>:nth-child(3){
     grid-column: span 1;
     border-left: 1px solid #ccc;
@@ -108,11 +108,9 @@ $bg-text: #a8a8a8;
     h3, 
     p, 
     a { 
-      padding: $padding; 
-      
+      padding: $padding;     
     }
     a{ text-decoration: underline; }
-
   }
   .masonryImg{
     width: '100%'; 
@@ -121,6 +119,18 @@ $bg-text: #a8a8a8;
     background-color: $bg;
     padding: $padding;
     grid-row: span 10;
+  }
+  @media screen and (max-width: 980px){
+    grid-template-columns: repeat(2, 1fr);
+    &>header{
+      grid-column: span 2;
+    }
+  }
+  @media screen and (max-width: 600px){
+    grid-template-columns: 1fr;
+    &>header{
+      grid-column: span 1;
+    }
   }
 
 }
@@ -148,6 +158,7 @@ $bg-text: #a8a8a8;
       line-height: 2em;
       text-align: center;
       padding: $padding;
+      margin: auto;
     }
     & div h2 {
       color: #eeeee7;
