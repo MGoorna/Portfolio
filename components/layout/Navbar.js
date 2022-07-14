@@ -1,13 +1,14 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link'
 import styles from './Navbar.module.scss'
-import Button from '../../components/layout/Button';
+import Button from '../../components/layout/Button'
 import useWindowsDiamensions from './@hooks/useWindowsDimensions'
-import { FaChartArea } from "react-icons/fa";
-import { BsSignpostSplitFill } from "react-icons/bs";
-import { SiBitcoincash } from "react-icons/si";
-import { RiBankLine } from 'react-icons/ri'; 
-import { CgMenuGridO } from 'react-icons/cg';
+import { FaChartArea } from "react-icons/fa"
+import { BsSignpostSplitFill } from "react-icons/bs"
+import { SiBitcoincash } from "react-icons/si"
+import { RiBankLine } from 'react-icons/ri'
+import { CgMenuGridO } from 'react-icons/cg'
+import { BsFillGrid1X2Fill } from 'react-icons/bs'
 import { useRouter } from 'next/router'
 
 
@@ -39,7 +40,7 @@ const Navbar = () => {
                                 <Link href="/posts"><a><BsSignpostSplitFill fontSize='20'/>Posts</a></Link>
                             </li>  
                             <li>
-                                <Link href="/grid"><a>Grid layouts</a></Link>
+                                <Link href="/grid"><a><BsFillGrid1X2Fill fontSize='20'/>Grid layouts</a></Link>
                             </li>
                         </ul>
                         <CgMenuGridO color='white' fontSize='40'/>

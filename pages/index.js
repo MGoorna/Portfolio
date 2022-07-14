@@ -46,23 +46,37 @@ export default function Home() {
         <ul id="imageSection" className={styles.image__section}>
           <BackgroundImage index={index} technolgies={technolgies}/>
         </ul>
-        <ul id="menu" className={styles.menu}>
-          <li><Link href="/table">
-          <a className={styles.hover__underline__animation} tabIndex='0'
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>React table</a></Link></li>                  
-          <li><Link href="/chart"><a
-            className={styles.hover__underline__animation} tabIndex='1'
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>Chart</a></Link></li>
-          <li><Link href="/budget">
-            <a className={styles.hover__underline__animation} tabIndex='2'
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>Budget</a></Link></li>
-          <li><Link href="/posts"><a
-            className={styles.hover__underline__animation} tabIndex='3'
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>Posts</a></Link></li>
+        <ul id="menu" className={styles.menu}>                
+          <li>
+            <Link href="/chart">
+              <a
+              className={styles.hover__underline__animation} tabIndex='1'
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}>Chart</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/budget">
+              <a className={styles.hover__underline__animation} tabIndex='2'
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}>Budget</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/posts">
+              <a
+                className={styles.hover__underline__animation} tabIndex='3'
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>Posts</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/grid">
+              <a className={styles.hover__underline__animation} tabIndex='0'
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}>Grid layout</a>
+            </Link>
+          </li>  
         </ul>
       </main> 
       <div ref={cursorRef} className={styles.cursor}></div>  
